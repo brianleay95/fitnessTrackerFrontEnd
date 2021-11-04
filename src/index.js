@@ -8,13 +8,15 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import {Header} from "./components";
+import {Header,
+Register
+} from "./components";
 
 const App = () => {
   return (
     <div id="App">
       <h1>Hello, World</h1>
-      <Header />
+     
     </div>
   );
 };
