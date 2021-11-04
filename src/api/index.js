@@ -1,6 +1,8 @@
 import axios from 'axios';
 
+
 const BASE = 'https://fitnesstrac-kr.herokuapp.com/'
+
 
 export async function getUsers() {
   try {

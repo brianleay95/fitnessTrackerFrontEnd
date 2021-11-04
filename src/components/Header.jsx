@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {userState, useEffect} from 'react';
 
 const Header = (props) => {
   return(
-    <div>Hello World</div>
+    <div>THIS IS FITNESS TRACKER!!</div>
   );
 };
 
