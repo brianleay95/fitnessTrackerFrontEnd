@@ -19,7 +19,8 @@ export async function registerUser(username, password) {
       username: username,
       password: password,
     });
-    return data.data;
+    //console.log(data);
+    return data;
   } catch (error) {
     console.log("error in api regsiterUser");
     throw error;

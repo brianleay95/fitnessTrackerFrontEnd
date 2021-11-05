@@ -18,7 +18,7 @@ const Register = ({ setIsLoading, isLoggedIn, setIsLoggedIn }) => {
   else if (isLoggedIn && registered)
     return (
       <div className="register-main-container">
-        Account registered! Let's start pitching!
+        Account registered!
       </div>
     );
 
@@ -32,8 +32,9 @@ const Register = ({ setIsLoading, isLoggedIn, setIsLoggedIn }) => {
 
           try {
             const results = await registerUser(username, password);
-            if (results.error === undefined) {
-              storeToken(results.data.token);
+            //console.log(results);
+            if (results.user !== undefined) {
+              storeToken(results.token);
               setIsLoggedIn(true);
               setRegistered(true);
             } else console.log("register failed: ", results.error.message);
