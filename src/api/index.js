@@ -18,9 +18,6 @@ return data;
 }catch(error){
   throw error;
 }
-import axios from "axios";
-
-const BASE = "http://fitnesstrac-kr.herokuapp.com/api";
 
 export async function getUsers() {
   try {
