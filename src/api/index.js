@@ -48,7 +48,7 @@ export async function fetchMe() {
         "Authorization": `Bearer ${token}`,
       },
     });
-    return data.data;
+    return data;
   } catch (error) {
     throw error;
   }
