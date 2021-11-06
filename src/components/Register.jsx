@@ -79,8 +79,4 @@ const Register = ({ setIsLoading, isLoggedIn, setIsLoggedIn }) => {
   );
 };
 
-
-
-
-
 export default Register;

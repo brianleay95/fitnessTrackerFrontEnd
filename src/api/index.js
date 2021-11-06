@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 import { getToken } from "../auth";
 
 const BASE = 'http://fitnesstrac-kr.herokuapp.com/api';
@@ -14,9 +14,9 @@ export async function allActivities(){
   });
   // console.log("ALL ACTIVITIES", data)
 return data;
-
 }catch(error){
   throw error;
+}
 }
 
 export async function getUsers() {
@@ -71,10 +71,22 @@ export async function fetchMe() {
   }
 }
 
-export async function routines() {
+export async function userRoutines() {
   try {
-    const token = getToken()
     const { data } = await axios.get(`${BASE}/users/:username/routines`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function routines(){
+  try {
+    const { data } = await axios.get(`${BASE}/routines`, {
       headers: {
         "Content-Type": "application/json",
       },
