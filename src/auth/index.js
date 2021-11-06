@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 export function storeToken(token) {
   localStorage.setItem('token', JSON.stringify(token));
 }
@@ -23,3 +24,19 @@ export function getUser() {
   const myUser = JSON.parse(localStorage.getItem('user'));
   return myUser;
 }
+=======
+
+export function storeToken(token) {
+  localStorage.setItem('token', JSON.stringify(token));
+}
+
+export function getToken() {
+        const myToken = JSON.parse(localStorage.getItem('token'));
+        return myToken;
+}
+
+export function clearCurrentToken() {
+  localStorage.removeItem('token');
+}
+
+>>>>>>> f125db42ce11383bb0e25ca19b4c0be7338578c8

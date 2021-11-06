@@ -6,6 +6,7 @@ import {
   Route,
   Switch,
   Redirect,
+  Link,
 } from "react-router-dom";
 
 import { Navbar, Register, Login } from "./components";
@@ -17,10 +18,7 @@ const App = () => {
   return (
     <div id="App">
       <h1>Hello, World</h1>
-      <Navbar 
-      setIsLoggedIn={setIsLoggedIn}
-      isLoggedIn={isLoggedIn}
-      />
+      <Navbar setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
       <Route path="/register">
         <Register
           isLoggedIn={isLoggedIn}
