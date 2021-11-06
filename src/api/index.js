@@ -53,3 +53,17 @@ export async function fetchMe() {
     throw error;
   }
 }
+
+export async function routines() {
+  try {
+    const token = getToken()
+    const { data } = await axios.get(`${BASE}/users/:username/routines`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
