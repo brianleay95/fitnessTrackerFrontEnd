@@ -10,3 +10,16 @@ export function getToken() {
 export function clearCurrentToken() {
   localStorage.removeItem('token');
 }
+
+export function clearCurrentUser() {
+  localStorage.removeItem('user');
+}
+
+export function storeUser(user) {
+  localStorage.setItem('user', JSON.stringify(user));
+}
+
+export function getUser() {
+  const myUser = JSON.parse(localStorage.getItem('user'));
+  return myUser;
+}
