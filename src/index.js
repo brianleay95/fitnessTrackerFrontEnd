@@ -6,6 +6,7 @@ import {
   Route,
   Switch,
   Redirect,
+  Link
 } from "react-router-dom";
 
 import {Header,
@@ -20,8 +21,18 @@ const App = () => {
 
   return (
     <div id="App">
-      <h1>Hello, World</h1>
+      {/* <h1>Hello, World</h1> */}
       <Header />
+
+      
+      <Switch>
+        <Route path="/Activities">
+          <Activities
+          allActivities={allActivities}
+          />
+        </Route>
+      </Switch>
+
       <Route path="/register">
           <Register
             isLoggedIn={isLoggedIn}
@@ -36,9 +47,14 @@ const App = () => {
             isLoggedIn={isLoggedIn}
           />
         </Route>
+
     </div>
   );
+
+
 };
+
+
 
 ReactDOM.render(
   <Router>
