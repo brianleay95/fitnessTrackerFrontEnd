@@ -9,7 +9,8 @@ import {
 } from "react-router-dom";
 
 import {Header,
-Register
+Register,
+Login,
 } from "./components";
 
 const App = () => {
@@ -25,6 +26,13 @@ const App = () => {
             isLoggedIn={isLoggedIn}
             setIsLoading={setIsLoading}
             setIsLoggedIn={setIsLoggedIn}
+          />
+        </Route>
+        <Route path="/login">
+          <Login
+            setIsLoading={setIsLoading}
+            setIsLoggedIn={setIsLoggedIn}
+            isLoggedIn={isLoggedIn}
           />
         </Route>
     </div>

@@ -30,12 +30,25 @@ export async function registerUser(username, password) {
 export async function loginUser(username, password) {
   try {
     const { data } = await axios.post(`${BASE}/users/login`, {
-      user: {
-        username: username,
-        password: password,
-      },
+      username: username,
+      password: password,
     });
     return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function fetchMe() {
+  try {
+    const token = getToken()
+    const { data } = await axios.get(`${BASE}/users/me`, {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+    });
+    return data.data;
   } catch (error) {
     throw error;
   }
