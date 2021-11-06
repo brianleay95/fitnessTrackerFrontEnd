@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 import { getToken } from "../auth";
 
 const BASE = 'http://fitnesstrac-kr.herokuapp.com/api';
@@ -14,13 +14,11 @@ export async function allActivities(){
   });
   // console.log("ALL ACTIVITIES", data)
 return data;
-
 }catch(error){
   throw error;
 }
-import axios from "axios";
+}
 
-const BASE = "http://fitnesstrac-kr.herokuapp.com/api";
 
 export async function getUsers() {
   try {

@@ -6,10 +6,10 @@ import { NavLink } from "react-router-dom";
 const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
   return (
     <div className="navbar">
-      <NavLink to="/">Home</NavLink>
+      <NavLink to="/Home">Home</NavLink>
       {isLoggedIn ? <NavLink to="/routines"> Routines</NavLink> : null}
       {isLoggedIn ? <NavLink to="/myRoutines"> My Routines</NavLink> : null}
-      {isLoggedIn ? <NavLink to="/activities"> Activities</NavLink> : null}
+      {/* {isLoggedIn ? <NavLink to="/activities"> Activities</NavLink> : null} */}
       {isLoggedIn ? (
         <NavLink to="/logout">Logout</NavLink>
       ) : (
