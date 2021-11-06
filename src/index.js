@@ -9,20 +9,21 @@ import {
   Link
 } from "react-router-dom";
 
-import {
-Header,
+import {Header,
+Register,
+Login,
 } from "./components";
 
-import{allActivities} from "./api"
-
-import getToken from "./auth";
-import Activities from "./components/Activities";
-
 const App = () => {
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
   return (
     <div id="App">
       {/* <h1>Hello, World</h1> */}
       <Header />
+
       
       <Switch>
         <Route path="/Activities">
@@ -31,6 +32,22 @@ const App = () => {
           />
         </Route>
       </Switch>
+
+      <Route path="/register">
+          <Register
+            isLoggedIn={isLoggedIn}
+            setIsLoading={setIsLoading}
+            setIsLoggedIn={setIsLoggedIn}
+          />
+        </Route>
+        <Route path="/login">
+          <Login
+            setIsLoading={setIsLoading}
+            setIsLoggedIn={setIsLoggedIn}
+            isLoggedIn={isLoggedIn}
+          />
+        </Route>
+
     </div>
   );
 
