@@ -8,6 +8,7 @@ const Home = () => {
       setActivities(res);
     });
   }, []);
+  
   return (
     <div>
       <ul>
