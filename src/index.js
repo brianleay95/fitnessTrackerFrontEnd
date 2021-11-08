@@ -17,7 +17,7 @@ const App = () => {
 
   return (
     <div id="App">
-      <h1>Hello, World</h1>
+      <h1>Fitness World</h1>
       <Navbar setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
       <Switch>
         <Route path="/register">
