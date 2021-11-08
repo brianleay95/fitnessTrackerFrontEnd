@@ -9,7 +9,7 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
       <NavLink to="/Home">Home</NavLink>
       {isLoggedIn ? <NavLink to="/routines"> Routines</NavLink> : null}
       {isLoggedIn ? <NavLink to="/myRoutines"> My Routines</NavLink> : null}
-      {/* {isLoggedIn ? <NavLink to="/activities"> Activities</NavLink> : null} */}
+      <NavLink to="/Activities">Activities</NavLink>
       {isLoggedIn ? (
         <NavLink to="/logout">Logout</NavLink>
       ) : (

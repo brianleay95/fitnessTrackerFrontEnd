@@ -1,22 +1,37 @@
 import axios from "axios";
 import { getToken } from "../auth";
 
-const BASE = 'http://fitnesstrac-kr.herokuapp.com/api';
+const BASE = "http://fitnesstrac-kr.herokuapp.com/api";
 
-//Update to allActivities
-export async function allActivities(){
-  try{
-  const { data } = await axios.get(`${ BASE }/activities`, {
-  headers: {
-    'Content-Type': 'application/json',
-  },
-    
-  });
-  // console.log("ALL ACTIVITIES", data)
-return data;
-}catch(error){
-  throw error;
+export async function allActivities() {
+  try {
+    const { data } = await axios.get(`${BASE}/activities`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return data;
+  } catch (error) {
+    throw error;
+  }
 }
+
+export async function addActivity(name, description) {
+  const token = getToken();
+  try {
+    const { data } = await axios.post(`${BASE}/activities`,{
+        name: name,
+        description: description,
+      }, 
+     { headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json"
+     }});
+
+     return data;
+  } catch (error) {
+    throw error(error);
+  }
 }
 
 export async function getUsers() {
@@ -58,11 +73,11 @@ export async function loginUser(username, password) {
 
 export async function fetchMe() {
   try {
-    const token = getToken()
+    const token = getToken();
     const { data } = await axios.get(`${BASE}/users/me`, {
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
     });
     return data;
@@ -84,7 +99,7 @@ export async function userRoutines() {
   }
 }
 
-export async function routines(){
+export async function routines() {
   try {
     const { data } = await axios.get(`${BASE}/routines`, {
       headers: {
