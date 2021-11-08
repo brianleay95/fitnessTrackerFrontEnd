@@ -3,7 +3,6 @@ import { getToken } from "../auth";
 
 const BASE = "http://fitnesstrac-kr.herokuapp.com/api";
 
-//Update to allActivities
 export async function allActivities() {
   try {
     const { data } = await axios.get(`${BASE}/activities`, {
@@ -11,10 +10,27 @@ export async function allActivities() {
         "Content-Type": "application/json",
       },
     });
-    // console.log("ALL ACTIVITIES", data)
     return data;
   } catch (error) {
     throw error;
+  }
+}
+
+export async function addActivity(name, description) {
+  const token = getToken();
+  try {
+    const { data } = await axios.post(`${BASE}/activities`,{
+        name: name,
+        description: description,
+      }, 
+     { headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json"
+     }});
+
+     return data;
+  } catch (error) {
+    throw error(error);
   }
 }
 
