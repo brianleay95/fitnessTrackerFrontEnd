@@ -45,13 +45,10 @@ export async function getUsers() {
 
 export async function registerUser(username, password) {
   try {
-    //console.log(username + ' '+ password);
-    //console.log(`${ BASE }/users/register`);
     const { data } = await axios.post(`${BASE}/users/register`, {
       username: username,
       password: password,
     });
-    //console.log(data);
     return data;
   } catch (error) {
     console.log("error in api regsiterUser");
@@ -106,6 +103,88 @@ export async function routines() {
         "Content-Type": "application/json",
       },
     });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function createRoutine(routine) {
+  try {
+    const { data } = await axios.post(`${BASE}/routines`, {
+      name: routine.name,
+      goal: routine.goal,
+      isPublic: routine.isPublic,
+    });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function updateRoutine(routine) {
+  try {
+    const { data } = await axios.patch(
+      `${BASE}/routines/${routine.id}`,{
+        
+          name: routine.name,
+          goal: routine.goal,
+          isPublic: routine.isPublic,
+        });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function deleteRoutine(routine) {
+  try {
+    const token = getToken();
+    const { data } = await axios.delete(`${BASE}/routines/${routine.id}`,  {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function attachRoutineToActivity(routineId, activityId, count, duration) {
+  try {
+    const { data } = await axios.post(`${BASE}/routines/${routineId}/activities`, {
+      activityId: activityId,
+      count: count,
+      duration: duration,
+    });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function updateCountorDuration(routine_activities_id) {
+  try {
+    const { data } = await axios.patch(
+      `${BASE}/routine_activities/${routine_activities_id}`,
+      {
+        count: count,
+        duration: duration,
+      }
+    );
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function deleteActivityFromRoutine(routine_activities_id) {
+  try {
+    const { data } = await axios.delete(
+      `${BASE}/routine_activities/${routine_activities_id}`
+    );
     return data;
   } catch (error) {
     throw error;
