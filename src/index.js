@@ -9,7 +9,7 @@ import {
   Link,
 } from "react-router-dom";
 
-import { Navbar, Register, Login } from "./components";
+import { Home, Navbar, Register, Login } from "./components";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -33,6 +33,7 @@ const App = () => {
           isLoggedIn={isLoggedIn}
         />
       </Route>
+      <Home/>
     </div>
   );
 };
