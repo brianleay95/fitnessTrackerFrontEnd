@@ -7,10 +7,11 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
   return (
     <div className="navbar">
       <NavLink to="/Home">Home</NavLink>
-      {isLoggedIn ? <NavLink to="/routines"> Routines</NavLink> : null}
+      {isLoggedIn ? <NavLink to="/Routines"> Routines</NavLink> : null}
       {isLoggedIn ? <NavLink to="/myRoutines"> My Routines</NavLink> : null}
 
       <NavLink to="/Activities">Activities</NavLink>
+      <NavLink to="/Routines">Routines</NavLink>
 
       {isLoggedIn ? (
         <NavLink to="/logout">Logout</NavLink>

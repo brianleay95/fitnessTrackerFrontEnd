@@ -1,24 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import { allActivities, createRoutine, routines, userRoutines } from '../api';
+import React, { useState, useEffect } from "react";
+import { allActivities, createRoutine, routines, userRoutines } from "../api";
+
+
+
 
 const Routines = () => {
-  const [routine, setRoutines] = useState([])
-    useEffect(() => {
-      routines().then((res) => {
-        setRoutines(res);
-      });
-    }, []);
+  const [routine, setRoutines] = useState([]);
+  const [activities, setActivities] = useState([]);
+  useEffect(() => {
+    routines().then((res) => {
+      setRoutines(res);
+    });
+  }, []);
 
-    return (
-      <div>
-        <h1>Routines</h1>
-        <ul>
-          {routine.map((routine) => (
-            <li key={routine.id}>{routine.name}{routine.goal}{routine.username}{routine.activites}</li>
-          ))}
-        </ul>
-        </div>
-    );
-}
+  return (
+    <div>
+      <h1>Routines</h1>
+      <ul>
+        {routine.map((routine) => (
+          <li key={routine.id}>
+            <h2>{routine.name}</h2>
+            <h3>{routine.goal}</h3>
+            {routine.activity}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
-export default function Routines();
+export default Routines;

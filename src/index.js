@@ -9,11 +9,15 @@ import {
   Link,
 } from "react-router-dom";
 
-import { Home, Navbar, Register, Login, Activities } from "./components";
+import { Home, Navbar, Register, Login, Activities, Routines } from "./components";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [routineId, setRoutineId] = useState("");
+  const [routineActivityId, setRoutineActivityId] = useState("");
+  const [defaultRoutines, setDefaultRoutines] = useState([]);
+  const [routines, setRoutines] = useState("");
 
   return (
     <div id="App">
@@ -37,6 +41,10 @@ const App = () => {
 
         <Route path="/Activities">
           <Activities isLoggedIn={isLoggedIn} />
+        </Route>
+
+        <Route path="/Routines">
+          <Routines />
         </Route>
 
         <Route path="/">
