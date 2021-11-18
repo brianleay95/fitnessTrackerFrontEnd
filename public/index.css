@@ -5,3 +5,14 @@ h2,
 h3{
     font-family: 'Prompt', sans-serif;
 }
+
+.routines{
+    background-color: aquamarine;
+    margin-bottom: 2rem;
+    
+}
+
+.activity{
+    background-color: bisque;
+}
+
